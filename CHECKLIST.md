@@ -6,21 +6,21 @@ Stack: Next.js 15 · React 19 · TypeScript · Tailwind v4 · shadcn/ui · TanSt
 
 ## Phase 1 — Foundation
 
-### 1.1 Root Layout & Providers
-- [ ] Xoá boilerplate trong `src/app/page.tsx` và `layout.tsx`
-- [ ] Setup `layout.tsx`: font (next/font), metadata global, `<html lang="vi">`
-- [ ] Tạo `src/providers/QueryProvider.tsx` (`'use client'`) — bọc `QueryClientProvider`
-- [ ] Thêm `QueryProvider` vào root layout
-- [ ] Tạo `src/lib/api.ts` — axios instance với baseURL từ env, interceptor gắn token
-- [ ] Tạo `src/lib/constants.ts` — WS_URL, API_URL
-- [ ] Tạo `.env.local`: `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_WS_URL`
+### 1.1 Root Layout & Providers ✅
+- [x] Xoá boilerplate trong `src/app/page.tsx` và `layout.tsx`
+- [x] Setup `layout.tsx`: font (next/font), metadata global, `<html lang="vi">`
+- [x] Tạo `src/providers/QueryProvider.tsx` (`'use client'`) — bọc `QueryClientProvider`
+- [x] Thêm `QueryProvider` vào root layout
+- [x] Tạo `src/lib/api.ts` — axios instance với baseURL từ env, interceptor gắn token
+- [x] Tạo `src/lib/constants.ts` — WS_URL, API_URL
+- [x] Tạo `.env.local`: `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_WS_URL`
 
-### 1.2 Folder Structure
-- [ ] Tạo `src/components/ui/` — shadcn components (đã có từ init)
-- [ ] Tạo `src/components/common/` — shared components (Avatar, Spinner, EmptyState)
-- [ ] Tạo `src/hooks/` — custom hooks
-- [ ] Tạo `src/types/` — TypeScript interfaces (User, Message, Conversation)
-- [ ] Tạo `src/store/` — global state (Zustand hoặc Context)
+### 1.2 Folder Structure ✅
+- [x] Tạo `src/components/ui/` — shadcn components (đã có từ init)
+- [x] Tạo `src/components/common/` — shared components (Avatar, Spinner, EmptyState)
+- [x] Tạo `src/hooks/` — custom hooks
+- [x] Tạo `src/types/` — TypeScript interfaces (User, Message, Conversation)
+- [x] Tạo `src/store/` — global state (Zustand hoặc Context)
 
 ---
 
@@ -28,26 +28,26 @@ Stack: Next.js 15 · React 19 · TypeScript · Tailwind v4 · shadcn/ui · TanSt
 
 > **Next.js Concept:** Route Groups `(folder)` nhóm route mà không tạo segment URL. Middleware chạy trên Edge trước khi render.
 
-### 2.1 Route Groups
-- [ ] Tạo `src/app/(auth)/layout.tsx` — layout đơn giản, không sidebar
-- [ ] Tạo `src/app/(auth)/login/page.tsx`
-- [ ] Tạo `src/app/(auth)/register/page.tsx`
-- [ ] Tạo `src/app/(app)/layout.tsx` — layout với sidebar + header
-- [ ] Tạo `src/app/(app)/chat/page.tsx` — màn hình chính
+### 2.1 Route Groups ✅
+- [x] Tạo `src/app/(auth)/layout.tsx` — layout đơn giản, không sidebar
+- [x] Tạo `src/app/(auth)/login/page.tsx`
+- [x] Tạo `src/app/(auth)/register/page.tsx`
+- [x] Tạo `src/app/(app)/layout.tsx` — layout với sidebar + header
+- [x] Tạo `src/app/(app)/chat/page.tsx` — màn hình chính
 
-### 2.2 Middleware
-- [ ] Tạo `src/middleware.ts` ở root
-- [ ] Logic: nếu chưa có token → redirect `/login`
-- [ ] Logic: nếu đã có token mà vào `/login` → redirect `/chat`
-- [ ] Khai báo `config.matcher` — chỉ chặn route cần thiết
+### 2.2 Middleware ✅
+- [x] Tạo `src/middleware.ts` ở root
+- [x] Logic: nếu chưa có token → redirect `/login`
+- [x] Logic: nếu đã có token mà vào `/login` → redirect `/chat`
+- [x] Khai báo `config.matcher` — chỉ chặn route cần thiết
 
-### 2.3 Auth Forms
-- [ ] Cài `react-hook-form`: `npm install react-hook-form @hookform/resolvers`
-- [ ] Tạo Zod schema: `loginSchema`, `registerSchema` trong `src/lib/validations/auth.ts`
-- [ ] Form login: shadcn `Input`, `Button`, `Form` + RHF + Zod
-- [ ] Form register: tương tự, thêm field confirm password
-- [ ] Mutation login với TanStack Query (`useMutation`)
-- [ ] Lưu token vào cookie (`js-cookie` hoặc `document.cookie`)
+### 2.3 Auth Forms ✅
+- [x] Cài `react-hook-form`: `npm install react-hook-form @hookform/resolvers`
+- [x] Tạo Zod schema: `loginSchema`, `registerSchema` trong `src/lib/validations/auth.ts`
+- [x] Form login: shadcn `Input`, `Button`, `Form` + RHF + Zod
+- [x] Form register: tương tự, thêm field confirm password
+- [x] Mutation login với TanStack Query (`useMutation`)
+- [x] Token: accessToken lưu in-memory (`setAccessToken`), refreshToken do Express set HttpOnly cookie
 
 ### 2.4 Auth State
 - [ ] Tạo `src/store/auth.store.ts` — lưu user info
