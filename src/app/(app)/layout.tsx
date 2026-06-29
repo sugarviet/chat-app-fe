@@ -4,7 +4,7 @@ import React from 'react'
 import useAuth from '@/hooks/useAuth'
 
 const Layout = ({children}: {children: React.ReactNode}) => {
-  // useAuth();
+  useAuth();
   return (
     <>{children}</>
   )

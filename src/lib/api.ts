@@ -69,6 +69,8 @@ api.interceptors.response.use(
     } catch (refreshError) {
       processQueue(refreshError, null);
       clearAccessToken();
+      // Gọi logout để backend xóa cookie, tránh redirect loop
+      await axios.post(`${API_BASE_URL}/auth/logout`, {}, { withCredentials: true }).catch(() => {});
       window.location.href = '/login';
       return Promise.reject(refreshError);
     } finally {
